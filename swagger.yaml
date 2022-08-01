@@ -1,0 +1,388 @@
+openapi: 3.0.0
+info:
+  title: blog api
+  contact: {}
+  version: '1.0'
+servers:
+- url: https://cat-blog-api.herokuapp.com/api/v1
+  variables: {}
+paths:
+  /blogs:
+    get:
+      tags:
+      - Posts
+      summary: getAllblogPosts
+      operationId: getAllblogPosts
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          enum:
+          - application/json
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+    post:
+      tags:
+      - Posts
+      summary: addblogPosts
+      operationId: addblogPosts
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/addblogPostsRequest'
+            example:
+              title: testing 4
+              description: some text 4
+              categories:
+              - programimg
+              - games
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+  /blogs/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The post ID
+    get:
+      tags:
+      - Posts
+      summary: getSingleBlogPost
+      operationId: getSingleBlogPost
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          enum:
+          - application/json
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+  /blogs/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The post ID
+    delete:
+      tags:
+      - Posts
+      summary: removeSingleBlogPost
+      operationId: removeSingleBlogPost
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          enum:
+          - application/json
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+  /blogs/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The post ID
+    patch:
+      tags:
+      - Posts
+      summary: updateSingleBlogPost
+      operationId: updateSingleBlogPost
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          enum:
+          - application/json
+          type: string
+          example: application/json
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - title
+              - description
+              type: object
+              properties:
+                title:
+                  type: string
+                  example: kumar
+                description:
+                  type: string
+                  example: some test 7
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+  /blogs/likePost/{id}:
+    parameters:
+      - in: path
+        name: id
+        schema:
+          type: string
+        required: true
+        description: The post ID
+    patch:
+      tags:
+      - Posts
+      summary: likeBlogPost
+      operationId: likeBlogPost
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          enum:
+          - application/json
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+  /category:
+    get:
+      tags:
+      - Category
+      summary: getAllCategory
+      operationId: getAllCategory
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          enum:
+          - application/json
+          type: string
+          example: application/json
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+  /auth/register:
+    post:
+      tags:
+      - Auth
+      summary: Register
+      operationId: Register
+      parameters:
+      - name: Content-Type
+        in: header
+        description: ''
+        required: true
+        style: simple
+        schema:
+          enum:
+          - application/json
+          type: string
+          example: application/json
+      requestBody:
+        content:
+          application/x-www-form-urlencoded:
+            encoding: {}
+            schema:
+              required:
+              - name
+              - email
+              - password
+              - file
+              type: object
+              properties:
+                name:
+                  type: string
+                  example: ram
+                email:
+                  type: string
+                  example: ram123@gmail.com
+                password:
+                  type: string
+                  example: ram123
+                file:
+                  type: string
+        required: false
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+  /auth/login:
+    post:
+      tags:
+      - Auth
+      summary: Login
+      operationId: Login
+      parameters: []
+      requestBody:
+        description: ''
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+            example:
+              email: suresh123@gmail.com
+              password: suresh123
+        required: true
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+  /auth/user:
+    get:
+      tags:
+      - Auth
+      summary: getuser
+      operationId: getuser
+      parameters: []
+      responses:
+        '200':
+          description: ''
+          headers: {}
+      deprecated: false
+      security:
+      - bearer: []
+      servers:
+      - url: https://cat-blog-api.herokuapp.com/api/v1
+        variables: {}
+components:
+  schemas:
+    addblogPostsRequest:
+      title: addblogPostsRequest
+      required:
+      - title
+      - description
+      - categories
+      type: object
+      properties:
+        title:
+          type: string
+        description:
+          type: string
+        categories:
+          type: array
+          items:
+            type: string
+          description: ''
+      example:
+        title: testing 4
+        description: some text 4
+        categories:
+        - programimg
+        - games
+    LoginRequest:
+      title: LoginRequest
+      required:
+      - email
+      - password
+      type: object
+      properties:
+        email:
+          type: string
+        password:
+          type: string
+      example:
+        email: suresh123@gmail.com
+        password: suresh123
+  securitySchemes:
+    bearer:
+      type: http
+      scheme: bearer
+security: []
+tags:
+- name: Misc
+  description: ''
+- name: Posts
+  description: ''
+- name: Category
+  description: ''
+- name: Auth
+  description: ''

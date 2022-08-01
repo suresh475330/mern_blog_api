@@ -29,6 +29,12 @@ app.use(cors())
 app.use(helmet.crossOriginResourcePolicy({ policy: "cross-origin" }));
 app.use(xss())
 
+// swager
+const swaggerUi = require("swagger-ui-express")
+const YAML = require("yamljs")
+const swaggerDoucment = YAML.load("./swagger.yaml")
+
+
 app.use("/images",express.static(path.join(__dirname,"/public")))
 
 // routes
@@ -40,8 +46,11 @@ app.use("/api/v1/category",category)
 
 app.get("/",(req,res)=>{
   res.status(200).send(`<h1>Welcome</h1> 
-   <h2>BLOG APP API<h2>`)
+   <h2>BLOG APP API<h2>
+   <a href="/api-use"> API DOUCMENTATION </a>`)
 })
+
+app.use("/api-use",swaggerUi.serve,swaggerUi.setup(swaggerDoucment))
 
 
 app.all("*", (req, res) => {

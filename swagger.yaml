@@ -4,7 +4,7 @@ info:
   contact: {}
   version: '1.0'
 servers:
-- url: https://cat-blog-api.herokuapp.com/api/v1
+- url: https://cat-blog-api.onrender.com/api/v1
   variables: {}
 paths:
   /blogs:
@@ -31,7 +31,7 @@ paths:
       deprecated: false
       security: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
     post:
       tags:
@@ -60,7 +60,7 @@ paths:
       security:
       - bearer: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
   /blogs/{id}:
     parameters:
@@ -93,7 +93,7 @@ paths:
       deprecated: false
       security: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
   /blogs/{id}:
     parameters:
@@ -127,7 +127,7 @@ paths:
       security:
       - bearer: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
   /blogs/{id}:
     parameters:
@@ -178,7 +178,7 @@ paths:
       security:
       - bearer: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
   /blogs/likePost/{id}:
     parameters:
@@ -212,7 +212,7 @@ paths:
       security:
       - bearer: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
   /category:
     get:
@@ -238,7 +238,7 @@ paths:
       deprecated: false
       security: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
   /auth/register:
     post:
@@ -288,7 +288,7 @@ paths:
       deprecated: false
       security: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
   /auth/login:
     post:
@@ -314,7 +314,7 @@ paths:
       deprecated: false
       security: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
   /auth/user:
     get:
@@ -331,7 +331,7 @@ paths:
       security:
       - bearer: []
       servers:
-      - url: https://cat-blog-api.herokuapp.com/api/v1
+      - url: https://cat-blog-api.onrender.com/api/v1
         variables: {}
 components:
   schemas:
